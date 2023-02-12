@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: mysql
+  # etykiety umożliwiające wiązanie Service z tą kapsułą
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: database
+        image: mysql
+        resources:
+          requests:
+            cpu: 1
+            memory: 2Gi
+        env:
+        # Z powodów bezpieczeństwa zmienne środowiskowe nie są najlepszą praktyką,
+        # ale używamy ich dla zachowania zwięzłowści przykładu.
+        # Lepsze opcje znajdziesz w rozdziale 11.
+        - name: MYSQL_ROOT_PASSWORD
+          value: some-password-here
+        livenessProbe:
+          tcpSocket:
+            port: 3306
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+          - name: database
+            # MySQL przechowuje swoje bazy danych w /var/lib/mysql
+            mountPath: "/var/lib/mysql"
+      volumes:
+      - name: database
+        persistentVolumeClaim:
+          claimName: database

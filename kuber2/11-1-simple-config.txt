@@ -1,0 +1,3 @@
+# Tp jest przykładowy plik konfiguracyjny, którego mógłbym użyć do skonfigurowania aplikacji
+parameter1 = value1
+parameter2 = value2
