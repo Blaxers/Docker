@@ -10,7 +10,7 @@ spec:
   replicas: 2
   containers:
   - name: kuard
-    image: blaxers/kuard:blue
+    image: blaxers/kuard
     
     ports:
     - containerPort: 8080
