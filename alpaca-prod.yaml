@@ -3,14 +3,15 @@ kind: Pod
 metadata:
   name: alpaca-prod
   labels:
-    ver: 1
+    ver: 1.0.0
     app: alpaca
     env: prod
 spec:
   replicas: 2
   containers:
-  - image: blaxers/kuard:blue
-    name: alpaca-prod
+  - name: kuard
+    image: blaxers/kuard:blue
+    
     ports:
     - containerPort: 8080
       name: http
