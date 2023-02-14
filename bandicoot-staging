@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bandicoot-staging
+  labels:
+    ver: 2.0.0
+    app: bandicoot
+    env: staging
+spec:
+  replicas: 1
+  containers:
+  - name: kuard
+    image: blaxers/kuardrep
+    
+    ports:
+    - containerPort: 8080
+      name: http
+      protocol: TCP
