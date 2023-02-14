@@ -3,8 +3,8 @@ kind: Pod
 metadata:
   name: alpaca-prod
   labels:
-    ver: 1,
-    app: alpaca,
+    ver: 1
+    app: alpaca
     env: prod
 spec:
   replicas: 2
