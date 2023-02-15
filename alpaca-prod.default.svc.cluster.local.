@@ -1,0 +1,6 @@
+;; opcode: QUERY, status: NOERROR, id: 12071
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+;; QUESTION SECTION:
+;alpaca-prod.default.svc.cluster.local. IN A
+;; ANSWER SECTION:
+alpaca-prod.default.svc.cluster.local. 30 IN A 10.115.245.13
